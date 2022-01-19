@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/background">
+
+    <TextView
+        android:id="@+id/HD"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hướng dẫn"
+        android:textStyle="bold"
+        android:textSize="40dp"
+        android:layout_centerHorizontal="true"
+        />
+
+    <Button
+        android:id="@+id/BTBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/HD"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:text="Back" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/BTBack"
+        android:padding="20dp"
+        android:text="2048 bao gồm 16 ô vuông chia thành 4 hàng ngang và 4 hàng dọc. Mỗi lần bạn di chuyển được tính là một lượt chơi. Người chơi sử dụng các phím mũi tên để di chuyển và cộng điểm các ô vuông lại với nhau. Trong ccs ô vuông sẽ xuất hiện các giá trị 2 hoặc 4 ngẫu nhiên."
+        android:textSize="20dp"
+        />
+
+</RelativeLayout>

@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Game2048</string>
+    <string name="slogan">Join the number and get to the <b>2048 tile!</b></string>
+    <string name="newgame">New Game</string>
+</resources>

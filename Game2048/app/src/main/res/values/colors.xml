@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#123</color>
+    <color name="colorPrimaryDark">#123</color>
+    <color name="colorAccent">#123</color>
+    <array name="colorNumItem">
+        <item>#DAE1EE</item>
+        <item>#EDE0C8</item>
+        <item>#F2B179</item>
+        <item>#F59563</item>
+        <item>#F67C5F</item>
+        <item>#F65E3B</item>
+        <item>#EDCF72</item>
+        <item>#D6A458</item>
+        <item>#D39446</item>
+        <item>#BFA024</item>
+        <item>#8EF3EA</item>
+    </array>
+</resources>
