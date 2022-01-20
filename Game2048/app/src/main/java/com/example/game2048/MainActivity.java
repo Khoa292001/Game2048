@@ -23,11 +23,11 @@ public class MainActivity extends AppCompatActivity {
     private GridView gvGame;
     private NumItemAdapter numItemAdapter;
     private View.OnTouchListener touchListener;
-    private DataGame score;
     private float x,y;
     private Button newGame;
-    private TextView nowScore;
-    private Button Backmain;
+    TextView nowScore;
+    TextView bestScore;
+    private Button backMenu;
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
@@ -73,24 +73,26 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        Backmain = (Button) findViewById(R.id.Backmain);
-
-        Backmain.setOnClickListener(new View.OnClickListener() {
+        backMenu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finish();
+                backMenu();
             }
         });
     }
     private void anhXa(){
         gvGame = (GridView) findViewById(R.id.gvGame);
         newGame = (Button) findViewById(R.id.btnnewGame);
+        backMenu = (Button) findViewById(R.id.Backmain);
         nowScore = (TextView) findViewById(R.id.tvScores);
-
+        bestScore = (TextView) findViewById(R.id.tvBestscore);
     }
     private void khoitao(){
         DataGame.getDataGame().init(MainActivity.this);
         numItemAdapter = new NumItemAdapter(MainActivity.this,0,DataGame.getDataGame().getArrNum());
+
+        nowScore.setText("0");
+        bestScore.setText("9999");
 
         touchListener = new View.OnTouchListener() {
             @Override
@@ -105,17 +107,21 @@ public class MainActivity extends AppCompatActivity {
                             if (event.getX() < x){
                                 DataGame.getDataGame().slideLeft();
                                 numItemAdapter.notifyDataSetChanged();
+                                updateScore();
                             }else{
                                 DataGame.getDataGame().slideRight();
                                 numItemAdapter.notifyDataSetChanged();
+                                updateScore();
                             }
                         }else{
                             if (event.getY() < y){
                                 DataGame.getDataGame().slideDown();
                                 numItemAdapter.notifyDataSetChanged();
+                                updateScore();
                             }else{
                                 DataGame.getDataGame().slideUp();
                                 numItemAdapter.notifyDataSetChanged();
+                                updateScore();
                             }
                         }
                 }
@@ -127,6 +133,7 @@ public class MainActivity extends AppCompatActivity {
     private void setData(){
         gvGame.setAdapter(numItemAdapter);
         gvGame.setOnTouchListener(touchListener);
+
     }
 
     public void newGame(){
@@ -146,5 +153,25 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }).show();
     }
+    public void backMenu(){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage("Back to Menu!!!").setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                finish();
+            }
+        })
+                .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                    }
+                }).show();
+    }
+
+    public void updateScore(){
+        nowScore.setText(String.valueOf(DataGame.getDataGame().getScore()));
+    }
+
 
 }

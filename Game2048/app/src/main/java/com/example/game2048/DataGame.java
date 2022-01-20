@@ -13,13 +13,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class DataGame extends AppCompatActivity {
+public class DataGame{
     private static DataGame dataGame;
     private ArrayList<Integer> arrNum = new ArrayList<>();
     private int[] ArrayColor;
     private int[][] Array2C = new int[4][4];
     private Random random = new Random();
-    public int scores;
+    private int score = 0;
 
     static {
         dataGame = new DataGame();
@@ -36,6 +36,7 @@ public class DataGame extends AppCompatActivity {
                 arrNum.add(0);
             }
         }
+        score = 0;
         TypedArray typedArray = context.getResources().obtainTypedArray(R.array.colorNumItem);
         ArrayColor = new int[typedArray.length()];
         for (int i = 0; i < typedArray.length(); i++) {
@@ -93,6 +94,9 @@ public class DataGame extends AppCompatActivity {
             }
         }
     }
+    public int getScore(){
+        return score;
+    }
 
     public void slideLeft() {
         boolean check = false;
@@ -108,9 +112,10 @@ public class DataGame extends AppCompatActivity {
                             continue;
                         } else {
                             if (nextnumit == numit) {
-                                check = true;
-                                Array2C[i][j] = numit * 2;
+                                Array2C[i][j] *= 2;
                                 Array2C[i][k] = 0;
+                                score += Array2C[i][j];
+                                check = true;
                                 break;
                             } else {
                                 break;
@@ -129,9 +134,9 @@ public class DataGame extends AppCompatActivity {
                         if (nextnumit == 0) {
                             continue;
                         } else {
-                            check = true;
                             Array2C[i][j] = Array2C[i][k];
                             Array2C[i][k] = 0;
+                            check = true;
                             break;
                         }
                     }
@@ -158,9 +163,10 @@ public class DataGame extends AppCompatActivity {
                             continue;
                         } else {
                             if (nextnumit == numit) {
-                                check = true;
-                                Array2C[i][j] = numit * 2;
+                                Array2C[i][j] *= 2;
                                 Array2C[i][k] = 0;
+                                score += Array2C[i][j];
+                                check = true;
                                 break;
                             } else {
                                 break;
@@ -170,8 +176,6 @@ public class DataGame extends AppCompatActivity {
                 }
             }
         }
-
-
         for (int i = 3; i >= 0; i--) {
             for (int j = 3; j >= 0; j--) {
                 int numit = Array2C[i][j];
@@ -181,9 +185,9 @@ public class DataGame extends AppCompatActivity {
                         if (nextnumit == 0) {
                             continue;
                         } else {
-                            check = true;
                             Array2C[i][j] = Array2C[i][k];
                             Array2C[i][k] = 0;
+                            check = true;
                             break;
                         }
                     }
@@ -210,9 +214,10 @@ public class DataGame extends AppCompatActivity {
                             continue;
                         } else {
                             if (nextnumit == numit) {
-                                check = true;
-                                Array2C[j][i] = numit * 2;
+                                Array2C[j][i] *= 2;
                                 Array2C[k][i] = 0;
+                                score += Array2C[j][i];
+                                check = true;
                                 break;
                             } else {
                                 break;
@@ -222,8 +227,6 @@ public class DataGame extends AppCompatActivity {
                 }
             }
         }
-
-
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 4; j++) {
                 int numit = Array2C[j][i];
@@ -233,9 +236,9 @@ public class DataGame extends AppCompatActivity {
                         if (nextnumit == 0) {
                             continue;
                         } else {
-                            check = true;
                             Array2C[j][i] = Array2C[k][i];
                             Array2C[k][i] = 0;
+                            check = true;
                             break;
                         }
                     }
@@ -262,9 +265,10 @@ public class DataGame extends AppCompatActivity {
                             continue;
                         } else {
                             if (nextnumit == numit) {
-                                check = true;
-                                Array2C[j][i] = numit * 2;
+                                Array2C[j][i] *= 2;
                                 Array2C[k][i] = 0;
+                                score += Array2C[j][i];
+                                check = true;
                                 break;
                             } else {
                                 break;
@@ -274,8 +278,6 @@ public class DataGame extends AppCompatActivity {
                 }
             }
         }
-
-
         for (int i = 3; i >= 0; i--) {
             for (int j = 3; j >= 0; j--) {
                 int numit = Array2C[j][i];
@@ -285,9 +287,9 @@ public class DataGame extends AppCompatActivity {
                         if (nextnumit == 0) {
                             continue;
                         } else {
-                            check = true;
                             Array2C[j][i] = Array2C[k][i];
                             Array2C[k][i] = 0;
+                            check = true;
                             break;
                         }
                     }

@@ -4,9 +4,10 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/icongame"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/icongame"
+        android:backupInForeground="true"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
